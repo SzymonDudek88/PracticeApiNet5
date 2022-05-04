@@ -18,6 +18,12 @@ namespace PracticeApiNet5.Repositories
          new Post  (2, 2 , "Title1", true)
         };
 
+        public PostRepository()
+        {
+        }
+
+      
+
         public IEnumerable<Post>  GetAll() // This function is going to be async in future
         { 
             return _posts;
@@ -25,10 +31,15 @@ namespace PracticeApiNet5.Repositories
 
         public  Post GetById(int id)
         {
-            return _posts.SingleOrDefault(x => x.Id == id);
-
+            return _posts.SingleOrDefault(x => x.Id == id); 
         }
-
+        public Post AddPost(Post post)
+        {
+            var lastId = _posts.Last().Id;
+            post.Id = lastId + 1; 
+            _posts.Add(post);
+            return post;
+        }
 
     }
 }

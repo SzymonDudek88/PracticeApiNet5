@@ -11,6 +11,7 @@ namespace PracticeApiNet5.Repositories
     {
          IEnumerable<Post>  GetAll();
 
-         Post  GetById(int id);
+         Post GetById(int id);
+         Post AddPost(Post post);
     }
 }
