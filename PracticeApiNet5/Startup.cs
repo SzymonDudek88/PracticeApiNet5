@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using PracticeApiNet5.Methods;
+using PracticeApiNet5.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,10 @@ namespace PracticeApiNet5
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<StatusMethods>();
+            //DI
+            //services.AddTransient<IDataMethods,  DataMethods>(); // TEST
+
+            services.AddScoped<IPostRepository, PostRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

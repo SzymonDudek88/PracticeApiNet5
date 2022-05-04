@@ -7,7 +7,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace PracticeApiNet5.Methods
 {
-    public class DataMethods
+    public class DataMethods : IDataMethods
     {
         private readonly IMemoryCache _memoryCache;
         public DataMethods(IMemoryCache memoryCache)
