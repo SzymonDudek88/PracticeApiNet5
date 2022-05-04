@@ -32,6 +32,7 @@ namespace PracticeApiNet5
             //services.AddTransient<IDataMethods,  DataMethods>(); // TEST
 
             services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -9,9 +9,9 @@ namespace PracticeApiNet5.Repositories
 {
     public interface ICommentRepository
     {
-       Task<IEnumerable<Comment>> GetAllAsync();
+        IEnumerable<Comment>  GetAll();
 
-        Task<Comment> GetByIdAsync(int id);
+         Comment  GetById (int id);
 
     }
 }

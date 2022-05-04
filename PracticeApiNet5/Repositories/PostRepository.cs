@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PracticeApiNet5.Entities;
-using Microsoft.EntityFrameworkCore;
+using PracticeApiNet5.Entities; 
 using System.Threading;
  
 
@@ -12,21 +11,24 @@ namespace PracticeApiNet5.Repositories
 {
     public class PostRepository : IPostRepository
     {
-        private static readonly ISet<Post> _orders = new HashSet<Post>()
+        private static readonly ISet<Post> _posts = new HashSet<Post>()
         {
          new Post  (0, 0 , "Title1", true),
          new Post  (1, 1 , "Title1", true),
          new Post  (2, 2 , "Title1", true)
         };
 
-        public async Task<IEnumerable<Post>> GetAllAsync() // This function is going to be async in future
+        public IEnumerable<Post>  GetAll() // This function is going to be async in future
         { 
-            return _orders;
+            return _posts;
         }
 
-        public Task<Post> GetByIdAsync(int id)
+        public  Post GetById(int id)
         {
-            throw new NotImplementedException();
+            return _posts.SingleOrDefault(x => x.Id == id);
+
         }
+
+
     }
 }

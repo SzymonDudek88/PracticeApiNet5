@@ -9,8 +9,8 @@ namespace PracticeApiNet5.Repositories
 {
     public interface IPostRepository
     {
-        Task<IEnumerable<Post>> GetAllAsync();
+         IEnumerable<Post>  GetAll();
 
-        Task<Post> GetByIdAsync(int id);
+         Post  GetById(int id);
     }
 }

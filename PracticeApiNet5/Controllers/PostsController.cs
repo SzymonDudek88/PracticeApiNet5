@@ -25,17 +25,17 @@ namespace PracticeApiNet5.Controllers
 
         [SwaggerOperation(Summary = "Retrieves all posts")]
         [HttpGet] // api/posts
-        public async Task<IEnumerable<Post>> GetAll()
+        public  IEnumerable<Post>  GetAll()
         {
-            return await _postRepository.GetAllAsync();
+            return _postRepository.GetAll();
         }
 
 
         [SwaggerOperation(Summary = "Retrieves post by Id")]
         [HttpGet("{id}")] // api/posts/id
-        public async Task<IActionResult> Get(int id)
+        public  IActionResult Get(int id)
         {
-            var post = await _postRepository.GetByIdAsync(id);
+            var post = _postRepository.GetById(id);
             if (post == null)
             {
                 return NotFound();
